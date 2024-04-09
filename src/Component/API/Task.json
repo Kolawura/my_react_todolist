@@ -1,14 +1,3 @@
 {
-  "tasks": [
-    {
-      "task": "Httt",
-      "compTask": false,
-      "id": 1
-    },
-    {
-      "task": "dsfgjhk",
-      "compTask": false,
-      "id": 2
-    }
-  ]
+  "tasks": []
 }
