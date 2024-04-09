@@ -1,0 +1,161 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'poppins', sans-serif;
+}
+
+#root{
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  background: linear-gradient(rgb(255, 196, 71), rgb(172, 239, 255),
+  rgb(201, 239, 255));
+}
+.app{
+  width: min(95vw, 30rem);
+  position: absolute;
+  margin: auto;
+  left: 0;
+  right: 0;
+  top: 1.7rem;
+}
+
+#wrapper{
+  background-color: aliceblue;
+  border-radius: 0.8rem;
+  box-shadow: 0 1rem 3rem rgb(0, 0, 0, 0.4);
+  height: auto;
+  padding: 2rem 2.5rem;
+  display: grid;
+  grid-template-columns: 2fr 1fr; 
+  gap: 1rem;
+}
+#wrapper input{
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid gainsboro;
+  padding: 1em 0.5em;
+}
+#wrapper input:focus{
+  outline: none;
+  border-color: rgb(41, 178, 255);
+}
+#wrapper button{
+  background-color: rgb(41, 178, 255);
+  border: none;
+  border-radius: 0.5rem;
+  color: #fff;
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.loading{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 8px solid;
+  border-radius: 50%;
+  border-color: rgb(255, 196, 71) rgb(201, 239, 255) rgb(172, 239, 255) rgb(41, 178, 255);
+  animation: 1.3s spin infinite;
+}
+@keyframes spin{
+  to{
+    transform: rotate(360deg);
+  }
+}
+
+#task{
+  background-color: rgb(190, 218, 243);
+  border-radius: 0.8rem;
+  box-shadow: 0 1rem 3rem rgb(0, 0, 0, 0.4);
+  color: #000;
+  max-height: 50vh;
+  overflow: hidden auto;
+  scroll-snap-type: y mandatory;
+  padding: 2rem 2.5rem;
+  scroll-padding: 2rem;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  gap: 10px;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;/* IE 10+ */
+}
+::-webkit-scrollbar{ 
+  width: 0;               /* Chrome/Safari/Webkit  */
+  background: transparent;
+}
+.complete{
+  text-decoration: line-through;
+  color: rgb(0, 0, 0, 0.5)
+}
+
+.todo-list{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+.todo-list li{
+  column-gap: 4px;
+  display: flex;
+  padding: 0.6rem;
+  flex: 4;
+  padding: 6px;
+  overflow: auto hidden;
+  overflow-wrap: normal;
+}
+.todo-list button{
+  border-radius: 6px;
+  background-color: rgb(190, 218, 243);
+  font-weight: 900px;
+  font-size: large;
+  margin: 5px;
+  flex: 1;
+  height: 2rem;
+  padding: .3rem;
+}
+.todo-list button:hover{
+  border-width: 2px;
+  font-size: 1.3rem;
+}
+.delBtn{
+  border-color: red;
+  color: red;
+}
+.editBtn{
+  border-color: blue;
+  color: blue;
+}
+.compBtn{
+  border-color: green;
+  color: green;
+}
+
+
+.error{
+  background-color: #fff;
+  border-radius: 0.8rem;
+  color: rgb(255, 0, 90);
+  font-size: 1.5em;
+  margin-top: 2rem;
+  padding: 1em;
+  text-align: center;
+}
+footer{
+  color: #000;
+  align-items: center;
+  position: fixed;
+  bottom: 0px;
+}
+/* footer span{
+  transition: all 3s linear;
+  transform: rotateY(360deg);
+} */
