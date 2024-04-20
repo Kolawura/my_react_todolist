@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 import { useEffect, useState } from 'react';
 import './App.css'
 import AddTask from './Component/AddTask'
@@ -19,6 +18,7 @@ function App() {
   const [isError, setIsError] = useState(false);
   const [isError1, setIsError1] = useState(false);
 
+  
 
   useEffect(() => {
     setLoading(isLoading)

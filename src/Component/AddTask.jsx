@@ -1,35 +1,34 @@
-/* eslint-disable react/prop-types */
 import { useState } from "react"
 
 const AddTask = ({ count, AddTasks, isLoading, setError }) => {
     const [task, setTask] = useState("");
-    
-    // addEventListener("keydown", (e) => {
-    //     // e.preventDefault();
-    //     if (e.key === "Enter") {
-    //     Submit();
-    //   }
-    // });
 
-    const Submit = (e) => {
-        e.preventDefault();
-        if (task) {
+    const handleKeyPress = (e) => {
+        if (e.key === "Enter") {
+            e.preventDefault();
+            Submit();
+        }
+    };
+
+    const Submit = () => {
+        if (task.trim() != '') {
             AddTasks(task)
         } else {
             setError();
         }
         setTask("")
     };
-    
+
 
     return (
         < >
             <input type="text"
                 placeholder="Task to be done..."
                 autoFocus={true}
-                className="task" 
+                className="task"
                 value={task}
-                onChange={(e) => setTask(e.target.value)} />
+                onChange={(e) => setTask(e.target.value)}
+                onKeyPress={handleKeyPress} />
             <button onClick={Submit}>Add Task</button>
             {isLoading && (
                 <p>Adding Task...</p>

@@ -7,8 +7,8 @@ export const useFetch = (url) => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {[]
-    // const abortCont = new AbortController();
-    // const signal = abortCont.signal;
+    const abortCont = new AbortController();
+    const signal = abortCont.signal;
     fetch(url)
       .then((res) => {
         if (!res.ok) {
