@@ -8,6 +8,7 @@ const Task = ({ todo, handleDelete, handleEdit, handleComplete }) => {
 
 
     return (
+        <>
         <ol className="todo-list" >
             <li className={(todo.compTask) ? "complete" : '' }>{todo.task}
             </li>
@@ -15,6 +16,9 @@ const Task = ({ todo, handleDelete, handleEdit, handleComplete }) => {
                 <button className="compBtn" onClick={() => handleComplete(todo.id)}><FontAwesomeIcon icon={faCheck} /></button>
                 <button className="delBtn" onClick={() => handleDelete(todo.id)}><FontAwesomeIcon icon={faTrashAlt} /></button>
         </ol>
+        <hr />
+        </>
+        
     )
 }
 

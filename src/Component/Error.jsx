@@ -4,10 +4,10 @@ const Error = ({error, error1}) => {
   return (
   <>
     { error && 
-        <p className="error">Sorry input cannot be empty!</p>
+        <p className="error error2">Sorry input cannot be empty!</p>
     }
    { error1 && 
-        <p className="error">Please Submit or clear input text first</p>
+        <p className="error error2">Please Submit or clear input text first</p>
     }</>
     )
 }

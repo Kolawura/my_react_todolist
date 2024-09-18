@@ -77,7 +77,7 @@
   max-height: 50vh;
   overflow: hidden auto;
   scroll-snap-type: y mandatory;
-  padding: 2rem 2.5rem;
+  padding: 1.5rem;
   scroll-padding: 2rem;
   margin-top: 10px;
   display: flex;
@@ -115,16 +115,16 @@
 .todo-list button{
   border-radius: 6px;
   background-color: rgb(190, 218, 243);
-  font-weight: 900px;
-  font-size: large;
-  margin: 5px;
+  font-size: 0.85rem;
+  margin: 4px;
   flex: 1;
   height: 2rem;
-  padding: .3rem;
+  padding: .2rem;
+  border-width: 1.5px;
 }
 .todo-list button:hover{
   border-width: 2px;
-  font-size: 1.3rem;
+  font-size: 0.9rem;
 }
 .delBtn{
   border-color: red;
@@ -138,16 +138,21 @@
   border-color: green;
   color: green;
 }
-
+hr{
+  color: transparent;
+  border: 0.2px solid rgb(165, 162, 162);
+}
 
 .error{
   background-color: #fff;
   border-radius: 0.8rem;
-  color: rgb(255, 0, 90);
+  color: red;
   font-size: 1.5em;
-  margin-top: 2rem;
   padding: 1em;
   text-align: center;
+}
+.error2{
+  margin-top: 2rem;
 }
 footer{
   color: #000;
