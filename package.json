@@ -4,11 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "concurrently \"json-server --watch src/Component/API/Task.json --port 4000\" \"vite\"",
+    "dev": "vite",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview",
-    "server": "json-server --watch src/Component/API/Task.json --port 4000"
+    "preview": "vite preview"
   },
   "dependencies": {
     "@fortawesome/free-solid-svg-icons": "^6.5.2",

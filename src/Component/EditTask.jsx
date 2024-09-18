@@ -28,7 +28,7 @@ const EditTasks = ({ count, EditTasks, isLoading, newTask, setError }) => {
                 className="task"
                 value={todo}
                 onChange={(e) => setTodo(e.target.value)}
-                onKeyPress={handleKeyPress} />
+                onKeyDown={handleKeyPress} />
             <button onClick={Submit}>Edit Task</button>
             {isLoading && (
                 <p>Editing Task...</p>

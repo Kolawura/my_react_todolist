@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 
-
 export const useFetch = (url) => {
   const [data, setData] = useState([]);
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {[]
+  useEffect(() => {
+    [];
     const abortCont = new AbortController();
     const signal = abortCont.signal;
     fetch(url)
@@ -26,10 +26,10 @@ export const useFetch = (url) => {
       })
       .finally(() => setIsLoading(false));
 
-      return () => {
-        console.log("clean-up");
-        abortCont.abort();
-      };
+    return () => {
+      console.log("clean-up");
+      abortCont.abort();
+    };
   }, [url]);
-  return [data, error, isLoading] ;
+  return [data, error, isLoading];
 };

@@ -28,7 +28,7 @@ const AddTask = ({ count, AddTasks, isLoading, setError }) => {
                 className="task"
                 value={task}
                 onChange={(e) => setTask(e.target.value)}
-                onKeyPress={handleKeyPress} />
+                onKeyDown={handleKeyPress} />
             <button onClick={Submit}>Add Task</button>
             {isLoading && (
                 <p>Adding Task...</p>
