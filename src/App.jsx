@@ -2,14 +2,10 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import AddTask from "./Component/AddTask";
 import Tasks from "./Component/Tasks";
-// import { useFetch } from './Component/useFetch';
 import EditTasks from "./Component/EditTask";
 import Error from "./Component/Error";
-import { json } from "react-router";
 
 function App() {
-  // const [taskData, error, isLoading] = useFetch('http://localhost:4000/tasks');
-
   const [count, setcount] = useState(0);
   const [tasks, setTasks] = useState([]);
   const [Loading, setLoading] = useState(false);
@@ -19,19 +15,20 @@ function App() {
   const [isError1, setIsError1] = useState(false);
   const [notEditTask, setNotEditTask] = useState([]);
   console.log(tasks);
-  // localStorage.removeItem('tasks')
   console.log(notEditTask);
 
   useEffect(() => {
     setLoading(true);
     const getTask = JSON.parse(localStorage.getItem("tasks"));
-    if (!isEdit) {
-      console.log("EDIT IS FALSE");
-      setTasks(getTask);
-    }
-    if (isEdit) {
-      console.log("EDIT IS TRUE");
-      setTasks(notEditTask);
+    if (getTask) {
+      if (!isEdit) {
+        console.log("EDIT IS FALSE");
+        setTasks(getTask);
+      }
+      if (isEdit) {
+        console.log("EDIT IS TRUE");
+        setTasks(notEditTask);
+      }
     }
     setLoading(false);
   }, []);
@@ -46,13 +43,13 @@ function App() {
         }
       });
     }
-    if(notEditTask && isEdit){
+    if (notEditTask && isEdit) {
       inCompTask = 0;
-      notEditTask?.forEach((task)=>{
+      notEditTask?.forEach((task) => {
         if (!task.compTask) {
           inCompTask += 1;
         }
-      })
+      });
     }
     setcount(inCompTask);
   }, [tasks, count]);
@@ -80,11 +77,11 @@ function App() {
 
   const handleDelete = (id) => {
     const del = window.confirm("Are you sure you want to delete this blog?");
-    const Tasks = JSON.parse(localStorage.getItem('tasks'))
+    const Tasks = JSON.parse(localStorage.getItem("tasks"));
     if (del) {
       const newTask = Tasks.filter((task) => task.id != id);
       const updatednotEditTask = notEditTask.filter((task) => task.id != id);
-      setNotEditTask(updatednotEditTask)
+      setNotEditTask(updatednotEditTask);
       localStorage.setItem("tasks", JSON.stringify(newTask));
       isEdit ? setTasks(notEditTask) : setTasks(newTask);
     }
@@ -114,7 +111,7 @@ function App() {
     const updatednotEditTask = notEditTask.map((task) =>
       task.id == id ? { ...task, compTask: !task.compTask } : task
     );
-    setNotEditTask(updatednotEditTask)
+    setNotEditTask(updatednotEditTask);
     localStorage.setItem("tasks", JSON.stringify(newTask));
     isEdit ? setTasks(notEditTask) : setTasks(newTask);
   };
@@ -150,7 +147,7 @@ function App() {
         <div id="task">
           <Tasks
             tasks={tasks}
-            notEditTasks = {notEditTask}
+            notEditTasks={notEditTask}
             isEdit={isEdit}
             Loading={Loading}
             del={handleDelete}
